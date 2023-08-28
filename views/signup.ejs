@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" href="/css/signup.css">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="https://kit.fontawesome.com/4fbdecbbc2.js" crossorigin="anonymous"></script>  
+    <title>Become a Member | ALVSH</title>
+    <%- include ('navbar')  %>
+</head>
+<body class="container-fluid text-center">
+    <h2>Newsletter Signup</h2>
+    <div style="display: none;" class="form__message form__message--error">Incorrect username/password combination</div>
+    <form action="/signup" id="signUp" class="row g-3 form-signin" method="post">    
+            <!-- <div class="signupContainer"> -->
+        <div class="col-md-6">
+            <label for="username" class="form-label">Username:</label>
+            <input type="text" class="form-control" placeholder="Enter Username" name="username" id="username" autocomplete="username" autofocus required/>
+        </div>
+
+        <div class="col-md-6">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" placeholder="Enter Email" name="email" id="email" autofocus required/>
+        </div>
+        <div class="col-md-6">
+            <label for="fName" class="form-label"> First Name:</label>
+            <input type="text" class="form-control" placeholder="Enter First Name" name="firstName" id="firstname" required/>   
+        </div>
+
+        <div class="col-md-6">
+            <label for="lName" class="form-label"> Last Name:</label>
+            <input type="text" class="form-control" placeholder="Enter Last Name" name="lastName" id="lastname" required/>
+        </div>
+
+        <div class="col-12">
+            <input type="password" class="form-control" placeholder="Enter Password" name="password" id="new-password" autocomplete="new-password" required/>
+        </div>
+
+        <div class="col-12">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button class="sumbit_btn btn btn-primary" type="submit">Submit</button>
+        </div>
+
+        <div class="col-12">
+            <a class="button google" href="/login/federated/google">
+                <i class="fa-brands fa-google fa-lg"></i>
+                Sign up with Google
+            </a> 
+        </div>  
+        <div class="signupbtmContainer col-12">
+            <button type="button" class="cancelbtn">Cancel</button>
+            <span class="pswrd"> Already a user? <a href="/login">Sign-in</a></span>
+        </div>
+    </form>
+
+    <script>
+        document.getElementById('signUp').addEventListener('submit', function(event) {
+            const usernameInput = document.getElementById('username');
+            const emailInput = document.getElementById('email');
+            const firstNameInput = document.getElementById('firstname');
+            const lastnameInput = document.getElementById('lastname'); 
+
+
+            usernameInput = usernameInput.value.trim();
+            emailInput = emailInput.value.trim();
+            firstNameInput = firstNameInput.value.trim();
+            lastnameInput = lastnameInput.value.trim();
+
+            console.log(usernameInput + " THIS IS THE TRIMMED USERNAME")
+        });
+    </script>
+
+
+<div class="footer-div">
+    <footer class="footer">
+        <p>Created by <a href="https://alvshtech.com">ALVSH Tech</a></p>
+        <p>Part of <a href="https://alvshtech.com">Articles Project</a></p>
+        <p>Authentication powered by <a href="https://www.passportjs.org">Passport</a></p>
+    </footer>
+</div>
+
+    
+    
+</body>
+</html>

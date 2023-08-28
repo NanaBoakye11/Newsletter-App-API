@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/blog.css">
+    <title>Setting</title>
+</head>
+<body>
+
+    <%- include ('navbar')  %>
+    <!-- <section class="blogapp">
+        <nav class="nav">
+            <ul>
+                <li class="user">
+                    <label for=""></label>
+                </li>
+                <li>
+                    <% if (user) { %>
+                    <a class="settings" href="/">Home</a><br>
+                    <% } %>
+                </li>
+                <li>
+                    <% if (user) { %>
+                        <form action="/logout" method="post">
+                            <button class="logout" type="submit">Log Out</button>
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        </form>
+                    <% } %>
+                </li>
+            </ul>
+       </nav>
+    </section> -->
+<section class="settingsHeader">
+    <% const username = user.username %>
+    <% const capUsername = username.charAt(0).toUpperCase() + username.slice(1) %>      
+</section>
+
+
+    <form action="/settings" method="post" class="settingsForm">
+        <h1>  Settings  </h1>
+        <input type="checkbox" value="general" id="general" name="general" checked>
+            <label for="general" class="general">General</label><br>
+
+        <input type="checkbox" value="business" id="business" name="business">
+            <label for="business" class="business">Business</label><br>
+
+        <input type="checkbox" value="entertainment" id="entertainment" name="entertainment">
+            <label for="entertainment" class="entertainment">Entertainment</label><br>
+        
+        <input type="checkbox" value="health" id="health" name="health">
+            <label for="health" class="health">Health</label><br>
+
+        <input type="checkbox" value="sports" id="sports" name="sports">
+            <label for="sports" class="sports">Sports</label><br>
+        
+        <input type="checkbox" value="technology" id="technology" name="technology">
+            <label for="technology" class="technology">Technology</label><br>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <button class="submit" type="submit">Submit</button>    
+
+ </form>
+    
+</body>
+</html>

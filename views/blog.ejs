@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!----------------BLOG CSS------------------->
+    <link rel="stylesheet" href="/css/blog.css">
+
+      <!---google fonts--->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Neuton:wght@800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montaga&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montaga&family=Montserrat&display=swap" rel="stylesheet">
+    <title>BLOG</title>
+</head>
+
+<body>
+  <header>
+    <%- include ('navbar')  %>
+  </header>
+    
+            
+    <h1> News for <%= username %> !  </h1>
+
+
+<% if (successMessage) { %>
+    <div id="successMessage" class="alert alert-success">
+        <%= successMessage %>
+    </div>
+<% } %>
+
+
+<div class="container text-center">
+    <div class="row">
+        <% articles.forEach(function(articles) { %>
+            <div class="col-4">
+                <div class="news-div">        
+                    <strong class="news_title"><%= articles.title %></strong>
+                    <img class="article_img" src="<%= articles.urlToImage %>" alt="article-image">
+                    <p class="news_description"><%= articles.description %></p>
+                    <span class="author"><%= articles.author %></span><br>
+                    <span class="published"><%= articles.publishedAt %></span><br>
+                    <h6 class="source"><%= articles.source.name %></h6>    
+                </div>
+            </div>      
+        <% }); %>
+    </div> 
+</div>
+
+<div>
+  <%- include ('pagination') %>
+</div>
+
+<%- include ('footer')  %>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const successMessage = document.getElementById("successMessage");
+      if (successMessage) {
+        setTimeout(function () {
+          successMessage.style.display = "none";
+        }, 2000); // 2000 milliseconds (2 seconds) delay
+      }
+    });
+  </script>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Use Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Use Bootstrap Icons -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.25.0/font/bootstrap-icons.css"> -->
+
+     <!-- Use Bootstrap 5 JavaScript -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!-- <link rel="stylesheet" href="/css/blog.css"> -->
+    <title>Pagination</title>
+</head>
+<body>
+    <% if (user) { %>
+        <div class="pagination">
+            <% for (let i = 1; i <=totalPages; i++) { %>
+                <a href="<%= currentPage %>&page=<%= i %>" <%= pageNumber == i ? 'class="active"' : '' %>><%= i %></a>
+            <% } %>
+        </div>
+        <% } %>   
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Into Profile | ALVSH</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <script src="https://kit.fontawesome.com/4fbdecbbc2.js" crossorigin="anonymous"></script>
+</head>
+<body class="text-center">
+    <form action="/login/password" method="post" class="form-signin">
+        <img class="mb-4" src="https://media.licdn.com/dms/image/D4E0BAQFIUpiiSG84kA/company-logo_200_200/0/1684014233778?e=1696464000&v=beta&t=4lOMqGApHAl2GjA1QOfiJL8FWqtrUNQpWLJWd5bU7N4" alt width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <label for="email" class="sr-only">Email:</label>
+        <input class="form-control" type="email" placeholder="Email address" name="email" id="email" autofocus required><br>  
+
+        <label for="current-password" class="sr-only">Password</label>
+        <input class="form-control" type="password" placeholder="Password" name="password" id="current-password"><br>
+
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>"> 
+
+        <button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">Login</button>
+        <p id="err_msg"></p>
+        <div>
+            <a class="button google" href="/login/federated/google">
+                Sign in with Google
+            </a><br>
+            <span class="noAccount">No account? <a href="/signup">Sign up!</a></span><br>
+        </div>
+        
+    </form>
+
+
+
+</body>
+
+
+</html>
